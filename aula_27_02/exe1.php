@@ -1,8 +1,11 @@
 <?php
-    $email = $_GET['email'];
-    $senha = $_GET['senha'];
+    $campoEmail = $_GET['email'];
+    $campoSenha = $_GET['senha'];
     
-    if($email == "admin" && $senha == "admin")
+    $email = "admin";
+    $senha = "admin";
+    
+    if($campoEmail == $email && $campoSenha == $senha)
     {
         echo "Login Validado!";
     }
