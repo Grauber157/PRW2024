@@ -74,6 +74,6 @@
 
     //Salario descontado do IRFP + INSS
     $salario = $salario - $taxaIRPF;
-
-    echo "".$salario, PHP_EOL;
+    echo "Sálario Lido: R$".$salario+$taxaINSS+$taxaIRPF, PHP_EOL;
+    echo "Sálario Restante: R$".$salario. " / Imposto Total: R$".$taxaINSS+$taxaIRPF;
 ?>
