@@ -1,6 +1,14 @@
 <?php
-    $num1 = $_GET['numero1'];
-    $num2 = $_GET['numero2'];
-    $num3 = $num1+$num2;
-    echo $num3;
+    $email = $_GET['email'];
+    $senha = $_GET['senha'];
+    
+    if($email == "admin" && $senha == "admin")
+    {
+        echo "Login Validado!";
+    }
+
+    else
+    {
+        echo "Login Inválido!";
+    }
 ?>
