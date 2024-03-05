@@ -2,7 +2,8 @@
     $nome = $_GET['nome'];
     $idade = $_GET['idade'];
     $salario = $_GET['salario'];
-
+    $taxaINSS = 0;
+    $taxaIRPF = 0;
     //INSS: x-1412,00=7,5% / 1412,01- 
 
     
@@ -71,7 +72,7 @@
     }
     
     
-
+    echo "Valor IRPF = ".$taxaIRPF;
     //Salario descontado do IRFP + INSS
     $salario = $salario - $taxaIRPF;
     echo "Sálario Lido: R$".$salario+$taxaINSS+$taxaIRPF, PHP_EOL;
