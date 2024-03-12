@@ -1,28 +1,57 @@
 <?php
-    list($horaInicial, $minInicial, $horaFinal, $minFinal) = explode(" ", readline());
-    
-    if ($horaFinal > $horaInicial)
+    list($horaI, $minI, $horaF, $minF) = explode(" ", readline());
+    $horaI = doubleval($horaI);
+    $minI = doubleval($minI);
+    $horaF = doubleval($horaF);
+    $minF = doubleval($minF);
+    //horaI < horaF
+    if ($horaI < $horaF and $minI < $minF)
     {
-        $tempoHor = $horaFinal - $horaInicial;
+        $tempoH = $horaF - $horaI;
+        $tempoM = $minF - $minI;
     }
-    else
+    else if ($horaI < $horaF and $minI > $minF)
     {
-        $tempoHor = abs($horaInicial-24)+$horaFinal;
-        //a - 24 + b
+        $tempoH = ($horaF - $horaI)-1;
+        $tempoM = ($minF - $minI)+60;
     }
-    
-    if ($minFinal > $minInicial)
+    else if ($horaI < $horaF and $minI == $minF)
     {
-        $tempoMin = $minFinal - $minInicial;
+        $tempoH = ($horaF - $horaI);
+        $tempoM = 0;
     }
-    else if ($minInicial==$minFinal)
+    //horaI > horaF
+    else if ($horaI > $horaF and $minI > $minF)
     {
-        $tempoMin = 0;
+        $tempoH = abs(($horaI-24))+$horaF-1;
+        $tempoM = ($minF - $minI)+60;
     }
-    else
+    //TESTE-------------
+    else if ($horaI > $horaF and $minI < $minF)
     {
-        $tempoMin = abs($minInicial-60)+$minFinal;
+        $tempoH = abs(($horaI-24))+$horaF;
+        $tempoM = $minF - $minI;
     }
-    
-    echo "O JOGO DUROU {$tempoHor} HORA(S) E {$tempoMin} MINUTO(S)\n";
+    else if ($horaI > $horaF and $minI == $minF)
+    {
+        $tempoH = abs($horaI - 24)+ $horaF;
+        $tempoM = 0;
+    }
+    //horaI == horaF
+    else if ($horaI == $horaF and $minI == $minF)
+    {
+        $tempoH = 24;
+        $tempoM = 0;
+    }
+    else if ($horaI == $horaF and $minI < $minF)
+    {
+        $tempoH = 0;
+        $tempoM = $minF - $minI;
+    }
+    else if ($horaI == $horaF and $minI > $minF)
+    {
+        $tempoH = 23;
+        $tempoM = ($minF - $minI)+60;
+    }
+    echo "O JOGO DUROU {$tempoH} HORA(S) E {$tempoM} MINUTO(S)\n";
 ?>
